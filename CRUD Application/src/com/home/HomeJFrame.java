@@ -45,16 +45,16 @@ public class HomeJFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jTextFieldcontact = new javax.swing.JTextField();
+        jTextFieldempId = new javax.swing.JTextField();
+        jTextFieldemail = new javax.swing.JTextField();
+        jTextFieldaddress = new javax.swing.JTextField();
+        jButtonupdate = new javax.swing.JButton();
+        jButtonclear = new javax.swing.JButton();
+        jButtonsave = new javax.swing.JButton();
+        jButtondelete = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jTextField6 = new javax.swing.JTextField();
+        jTextFieldfullName = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -133,40 +133,45 @@ public class HomeJFrame extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 102, 153));
         jLabel6.setText("Address");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 90, 40));
-        jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 250, 30));
+        jPanel4.add(jTextFieldcontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 250, 30));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldempId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                jTextFieldempIdActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 190, 30));
-        jPanel4.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 250, 30));
-        jPanel4.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 250, 30));
+        jPanel4.add(jTextFieldempId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 190, 30));
+        jPanel4.add(jTextFieldemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 250, 30));
+        jPanel4.add(jTextFieldaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 250, 30));
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 153));
-        jButton1.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Update");
-        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 170, 50));
+        jButtonupdate.setBackground(new java.awt.Color(0, 102, 153));
+        jButtonupdate.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
+        jButtonupdate.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonupdate.setText("Update");
+        jPanel4.add(jButtonupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 170, 50));
 
-        jButton2.setBackground(new java.awt.Color(0, 102, 153));
-        jButton2.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Clear");
-        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 170, 50));
+        jButtonclear.setBackground(new java.awt.Color(0, 102, 153));
+        jButtonclear.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
+        jButtonclear.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonclear.setText("Clear");
+        jPanel4.add(jButtonclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 170, 50));
 
-        jButton3.setBackground(new java.awt.Color(0, 102, 153));
-        jButton3.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Save");
-        jPanel4.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 170, 50));
+        jButtonsave.setBackground(new java.awt.Color(0, 102, 153));
+        jButtonsave.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
+        jButtonsave.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonsave.setText("Save");
+        jButtonsave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonsaveActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButtonsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 170, 50));
 
-        jButton4.setBackground(new java.awt.Color(0, 102, 153));
-        jButton4.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Delete");
-        jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 170, 50));
+        jButtondelete.setBackground(new java.awt.Color(0, 102, 153));
+        jButtondelete.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
+        jButtondelete.setForeground(new java.awt.Color(255, 255, 255));
+        jButtondelete.setText("Delete");
+        jPanel4.add(jButtondelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 170, 50));
 
         jButton5.setBackground(new java.awt.Color(0, 102, 153));
         jButton5.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
@@ -179,12 +184,12 @@ public class HomeJFrame extends javax.swing.JFrame {
         });
         jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 50, 30));
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldfullName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                jTextFieldfullNameActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 250, 30));
+        jPanel4.add(jTextFieldfullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 250, 30));
 
         jLabel8.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 102, 153));
@@ -219,13 +224,13 @@ public class HomeJFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void jTextFieldempIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldempIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_jTextFieldempIdActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void jTextFieldfullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldfullNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_jTextFieldfullNameActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -234,6 +239,23 @@ public class HomeJFrame extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButtonsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonsaveActionPerformed
+        // TODO add your handling code here:
+        String empId = jTextFieldempId.getText();
+        String fullName = jTextFieldfullName.getText();
+        String email = jTextFieldemail.getText();
+        String address = jTextFieldaddress.getText();
+        String contact = jTextFieldcontact.getText();
+        
+        //object of homebean class
+        HomeBean homeBean = new HomeBean(empId, fullName, email, address, contact);
+        
+        //homeBal object
+        HomeBal homeObj = new HomeBal();
+        homeObj.insert(homeBean);
+        
+    }//GEN-LAST:event_jButtonsaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,12 +293,12 @@ public class HomeJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButtonclear;
+    private javax.swing.JButton jButtondelete;
+    private javax.swing.JButton jButtonsave;
+    private javax.swing.JButton jButtonupdate;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -296,10 +318,10 @@ public class HomeJFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextFieldaddress;
+    private javax.swing.JTextField jTextFieldcontact;
+    private javax.swing.JTextField jTextFieldemail;
+    private javax.swing.JTextField jTextFieldempId;
+    private javax.swing.JTextField jTextFieldfullName;
     // End of variables declaration//GEN-END:variables
 }
