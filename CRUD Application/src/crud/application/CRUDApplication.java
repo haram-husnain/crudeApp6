@@ -4,6 +4,9 @@
  */
 package crud.application;
 
+import com.databaseCon.DB;
+import com.home.HomeJFrame;
+
 /**
  *
  * @author Daniel
@@ -15,6 +18,10 @@ public class CRUDApplication {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        HomeJFrame homeObj = new HomeJFrame();
+        homeObj.show();
+        
+        DB.loadConnection();
     }
     
 }
