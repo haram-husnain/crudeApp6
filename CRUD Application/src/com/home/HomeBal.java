@@ -4,9 +4,8 @@
  */
 package com.home;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 /**
  *
@@ -19,9 +18,8 @@ public class HomeBal {
     public void insert(HomeBean homeBean){
         
         try{
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/crud_app", "root", "qazwsx");
-            String query = "insert into employee values (null, ?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(query);
+            String query = "insert into employee values (?, ?, ?, ?, ?)";
+            PreparedStatement ps = com.databaseCon.DB.con.prepareStatement(query);
             ps.setString(1, homeBean.getempId());
             ps.setString(2, homeBean.getfullName());
             ps.setString(3, homeBean.getemail());

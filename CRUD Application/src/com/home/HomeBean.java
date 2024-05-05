@@ -27,43 +27,43 @@ public class HomeBean {
     
     // getter and setter methods
 
-    public String getEmpId() {
+    public String getempId() {
         return empId;
     }
 
-    public void setEmpId(String empId) {
+    public void setempId(String empId) {
         this.empId = empId;
     }
 
-    public String getFullName() {
+    public String getfullName() {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
+    public void setfullName(String fullName) {
         this.fullName = fullName;
     }
 
-    public String getEmail() {
+    public String getemail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setemail(String email) {
         this.email = email;
     }
 
-    public String getAddress() {
+    public String getaddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setaddress(String address) {
         this.address = address;
     }
 
-    public String getContact() {
+    public String getcontact() {
         return contact;
     }
 
-    public void setContact(String contact) {
+    public void setcontact(String contact) {
         this.contact = contact;
     }
     
