@@ -5,6 +5,10 @@
 package com.home;
 
 import java.awt.Toolkit;
+import java.util.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Daniel
@@ -17,6 +21,40 @@ public class HomeJFrame extends javax.swing.JFrame {
     public HomeJFrame() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo.png")));
+        loadTable();
+    }
+    
+    
+    //method for load table...
+    
+    public void loadAllDataIntoTable(List<HomeBean> list){
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        dtm.setRowCount(0);
+        
+        for (HomeBean bean : list) {
+            Vector v = new Vector();
+            v.add(bean.getid());
+            v.add(bean.getname());
+            v.add(bean.getemail());
+            v.add(bean.getaddress());
+            v.add(bean.getcontact());
+            
+            dtm.addRow(v);
+        }
+    }
+    
+    public void loadTable(){
+        HomeBal bal = new HomeBal();
+        List list = bal.loadData();
+        loadAllDataIntoTable(list);
+    }
+    
+    public void clearTextFieldsData(){
+        jTextFieldempId.setText("");
+        jTextFieldfullName.setText("");
+        jTextFieldemail.setText("");
+        jTextFieldaddress.setText("");
+        jTextFieldcontact.setText("");
     }
 
     /**
@@ -105,7 +143,7 @@ public class HomeJFrame extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 1000, 70));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel4.setToolTipText("");
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -121,7 +159,7 @@ public class HomeJFrame extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel4.setText("Surname");
+        jLabel4.setText("Name");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 90, 40));
 
         jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
@@ -148,12 +186,22 @@ public class HomeJFrame extends javax.swing.JFrame {
         jButtonupdate.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jButtonupdate.setForeground(new java.awt.Color(255, 255, 255));
         jButtonupdate.setText("Update");
+        jButtonupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonupdateActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButtonupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 170, 50));
 
         jButtonclear.setBackground(new java.awt.Color(0, 102, 153));
         jButtonclear.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jButtonclear.setForeground(new java.awt.Color(255, 255, 255));
         jButtonclear.setText("Clear");
+        jButtonclear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonclearActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButtonclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 170, 50));
 
         jButtonsave.setBackground(new java.awt.Color(0, 102, 153));
@@ -171,6 +219,11 @@ public class HomeJFrame extends javax.swing.JFrame {
         jButtondelete.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
         jButtondelete.setForeground(new java.awt.Color(255, 255, 255));
         jButtondelete.setText("Delete");
+        jButtondelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtondeleteActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButtondelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 170, 50));
 
         jButton5.setBackground(new java.awt.Color(0, 102, 153));
@@ -203,7 +256,7 @@ public class HomeJFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Surname", "Email", "Address", "Contact No."
+                "Id", "Name", "Email", "Address", "Contact No."
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -212,6 +265,11 @@ public class HomeJFrame extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -242,20 +300,67 @@ public class HomeJFrame extends javax.swing.JFrame {
 
     private void jButtonsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonsaveActionPerformed
         // TODO add your handling code here:
-        String empId = jTextFieldempId.getText();
+        String id = jTextFieldempId.getText();
         String fullName = jTextFieldfullName.getText();
         String email = jTextFieldemail.getText();
         String address = jTextFieldaddress.getText();
         String contact = jTextFieldcontact.getText();
         
         //object of homebean class
-        HomeBean homeBean = new HomeBean(empId, fullName, email, address, contact);
+        HomeBean homeBean = new HomeBean(id, fullName, email, address, contact);
         
         //homeBal object
         HomeBal homeObj = new HomeBal();
         homeObj.insert(homeBean);
-        
+        loadTable();
+        clearTextFieldsData();
     }//GEN-LAST:event_jButtonsaveActionPerformed
+    //int id = 0;
+    private void jButtonupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonupdateActionPerformed
+        // TODO add your handling code here:
+        String id = jTextFieldempId.getText();
+        String fullName = jTextFieldfullName.getText();
+        String email = jTextFieldemail.getText();
+        String address = jTextFieldaddress.getText();
+        String contact = jTextFieldcontact.getText();
+        HomeBean bean = new HomeBean(id, fullName, email, address, contact);
+        HomeBal bal = new HomeBal();
+        bal.updateData(bean);
+        loadTable();
+        clearTextFieldsData();
+    }//GEN-LAST:event_jButtonupdateActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int row = jTable1.getSelectedRow();
+        if (row < 0) {
+            JOptionPane.showMessageDialog(null, "Please select any record from table for update or delete");
+            
+        } else{
+            String id = (String) jTable1.getValueAt(row, 0);
+            com.home.HomeBal bal = new HomeBal();
+            HomeBean bean = bal.returnAllDataTextField(id);
+            jTextFieldempId.setText(bean.getid());
+            jTextFieldfullName.setText(bean.getname());
+            jTextFieldemail.setText(bean.getemail());
+            jTextFieldaddress.setText(bean.getaddress());
+            jTextFieldcontact.setText(bean.getcontact());
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButtondeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtondeleteActionPerformed
+        // TODO add your handling code here:
+        String id = jTextFieldempId.getText();
+        HomeBal bal = new HomeBal();
+        bal.deleteRecord(id);
+        loadTable();
+        clearTextFieldsData();
+    }//GEN-LAST:event_jButtondeleteActionPerformed
+
+    private void jButtonclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonclearActionPerformed
+        // TODO add your handling code here:
+        clearTextFieldsData();
+    }//GEN-LAST:event_jButtonclearActionPerformed
 
     /**
      * @param args the command line arguments

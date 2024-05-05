@@ -9,17 +9,17 @@ package com.home;
  * @author pmp
  */
 public class HomeBean {
-    private String empId;
-    private String fullName;
+    private String id;
+    private String name;
     private String email;
     private String address;
     private String contact;
     
     //constructor
 
-    public HomeBean(String empId, String fullName, String email, String address, String contact) {
-        this.empId = empId;
-        this.fullName = fullName;
+    public HomeBean(String id, String name, String email, String address, String contact) {
+        this.id = id;
+        this.name = name;
         this.email = email;
         this.address = address;
         this.contact = contact;
@@ -27,20 +27,20 @@ public class HomeBean {
     
     // getter and setter methods
 
-    public String getempId() {
-        return empId;
+    public String getid() {
+        return id;
     }
 
-    public void setempId(String empId) {
-        this.empId = empId;
+    public void setid(String id) {
+        this.id = id;
     }
 
-    public String getfullName() {
-        return fullName;
+    public String getname() {
+        return name;
     }
 
-    public void setfullName(String fullName) {
-        this.fullName = fullName;
+    public void setname(String name) {
+        this.name = name;
     }
 
     public String getemail() {
